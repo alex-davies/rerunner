@@ -1,7 +1,0 @@
-d:\dev\Rerunner\Rerunner\bin\Debug\Rerunner.exe.config
-D:\dev\rerunner\Rerunner\src\bin\Debug\Rerunner.exe.config
-D:\dev\rerunner\src\bin\Rerunner.exe
-D:\dev\rerunner\src\bin\Rerunner.pdb
-D:\dev\rerunner\src\obj\Debug\Rerunner.exe
-D:\dev\rerunner\src\obj\Debug\Rerunner.pdb
-D:\dev\rerunner\src\obj\Debug\Rerunner.csprojResolveAssemblyReference.cache
