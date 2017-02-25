@@ -14,6 +14,11 @@ namespace SampleApp
         static void Main(string[] args)
         {
             //throw new Exception("Hi");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("Starting in color");
+            Console.WriteLine();
+            Console.ResetColor();
            
             using (WebApp.Start<Startup>("http://localhost:8087"))
             {
@@ -29,14 +34,6 @@ namespace SampleApp
         {
             var text = File.ReadAllText("local.txt");
             Console.WriteLine(text);
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.BackgroundColor = ConsoleColor.DarkMagenta;
-            Console.Write("WHY");
-            Console.ResetColor();
-
-            // Configure Web API for self-host. 
-            //var config = new HttpConfiguration();
             app.Run(context =>
             {
                 context.Response.ContentType = "text/plain";

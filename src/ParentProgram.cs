@@ -92,32 +92,10 @@ namespace Rerunner
                     FileName = thisAppExe,
                     Arguments = "\"" + string.Join("\" \"", new[] { "--child", exeFileInfo.FullName }.Concat(args)) + "\"",
                     UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    RedirectStandardInput = true,
-                    CreateNoWindow = true,
                     WorkingDirectory = exeFileInfo.DirectoryName,
                 }
             };
             proc.Start();
-
-            StreamPipe pout = new StreamPipe(proc.StandardOutput.BaseStream, Console.OpenStandardOutput());
-            StreamPipe perr = new StreamPipe(proc.StandardError.BaseStream, Console.OpenStandardError());
-            StreamPipe pin = new StreamPipe(Console.OpenStandardInput(), proc.StandardInput.BaseStream);
-
-            Task.Run(async () =>
-            {
-                pin.Connect();
-                pout.Connect();
-                perr.Connect();
-                while (!proc.WaitForExit(0))
-                    await Task.Delay(100);
-                pin.Disconnect();
-                pout.Disconnect();
-                perr.Disconnect();
-            });
-
-
             return proc;
         }
 
